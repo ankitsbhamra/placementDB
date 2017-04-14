@@ -14,19 +14,22 @@ data = cursor.fetchone()
 
 print ("Database version : %s " % data)
 
-def collegeDetails(cname):
-    q1="SELECT * FROM college"
+def collegeDetails(cn):
+    #cn=button.cget("text")
+    q1="SELECT * FROM college where College_logo=\""+cn+"\""
     r1=cursor.execute(q1)
     r=cursor.fetchall()
     arrList=[]
 
     for i in r:
         arrList.append(i)
+        print i
 
     return arrList
     #print arrList
 
 def showCompany(cn):
+    #cn=button.cget("text")
     q1="select CompanyName,logo from company where CollegeCode in (select CollegeCode from college where CollegeName=\""+cn+"\")"
     print q1
     r1=cursor.execute(q1)
@@ -34,6 +37,7 @@ def showCompany(cn):
     a1 = []
     a2 = []
     for i in r:
+        print i
         a1.append(i[0])
         a2.append(i[1])
     print a1,a2
@@ -51,4 +55,3 @@ def showCollege():
         a2.append(i[1])
     return a1,a2
 
-showCompany("SJCE")
