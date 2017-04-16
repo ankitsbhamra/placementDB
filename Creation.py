@@ -9,7 +9,7 @@ class MakeButton:
     def makeB(self):
         button = Button(self.frame, text=self.name)
         button.pack(side=TOP, padx=10, pady=10)
-        #button.bind("<Button-1>", lambda event:self.func )
+        button.bind("<Button-1>", lambda event:self.func )
         return button
 
 class MakeLabel:
