@@ -1,7 +1,7 @@
 import pymysql as p
 from Tkinter import *
 # Open database connection
-db = p.connect("localhost","ankit","ankit123","placementdb",port=12345 )
+db = p.connect("localhost","root","Ankit201195","placementdb",port=12345 )
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -75,6 +75,7 @@ def studentDetails(name):
         print i
 
     return arrList
+
 
 
 def studentInCompany(name):
@@ -187,3 +188,73 @@ def showCollege():
 #showStudentInBranch("SJCE","is")
 
 #companyByCategory("Mass")
+
+
+def insertAcademics(e1,e2,e3,e4,e5,e6):
+    e3=str(e3)
+    e4=str(e4)
+    e5=str(e5)
+    try:
+        q="INSERT INTO academics(usn,project,12Marks,10Marks,cgpa,extraCurricular) VALUES(\""+e1+"\",\""+e2+"\","+e3+","+e4+","+e5+",\""+e6+"\")"
+        r1=cursor.execute(q)
+        r=cursor.fetchall()
+        return r
+    except Exception as e:
+        return e
+
+def insertCollege(e1,e2,e3,e4,e5,e6,e7,e8):
+    e1=str(e1)
+    e4 = str(e4)
+    e7 = str(e7)
+    try:
+        q="INSERT INTO college(CollegeCode,CollegeName,address,PhoneNumber,ContactInfo,affiliation,established,College_logo) VALUES("+e1+",\""+e2+"\",\""+e3+"\","+e4+",\""+e5+"\",\""+e6+"\","+e7+",\""+e8+"\")"
+        r1=cursor.execute(q)
+        r=cursor.fetchall()
+        return r
+    except Exception as e:
+        return e
+
+def insertCompany(e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,frame8):
+
+    e1=str(e1)
+    e3=str(e3)
+    e5=str(e5)
+    e8=str(e8)
+    try:
+        q="INSERT INTO company (CompanyId,CompanyName,CutOff,CompanyProfile,package,jobProfile,CompanyAddress,CollegeCode,ContactInfo,Logo) VALUES("+e1+",\""+e2+"\","+e3+",\""+e4+"\","+e5+",\""+e6+"\",\""+e7+"\","+e8+",\""+e9+"\",\""+e10+"\")"
+        r1=cursor.execute(q)
+        r=cursor.fetchall()
+        return r
+    except Exception as e:
+        return e
+
+def insertInternship(e1,e2,e3,e4,e5):
+    e3=str(e3)
+    e5=str(e5)
+    try:
+        q="INSERT INTO internship VALUES(\""+e1+"\",\""+e2+"\","+e3+",\""+e4+"\","+e5+",\"None\")"
+        r1=cursor.execute(q)
+        r=cursor.fetchall()
+        return r
+    except Exception as e:
+        return e
+
+def insertStudent(e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,frame8):
+    e3=str(e3)
+    e9=str(e9)
+    e10=str(e10)
+
+    try:
+        q = "INSERT INTO college(CollegeCode,CollegeName,address,PhoneNumber,ContactInfo,affiliation,established,College_logo) VALUES(\"" + e1 + "\",\"" + e2 + "\"," + e3 + ",\"" + e4 + "\",\"" + e5 + "\",\"" + e6 + "\",\"" + e7 + "\",\"" + e8 + "\","+e9+","+e10+",\""+e11+"\")"
+        r1 = cursor.execute(q)
+        r = cursor.fetchall()
+        return r
+    except Exception as e:
+        return e
+
+def updateAcademics(e1,j,i):
+        q="UPDATE academics set "+j+"= \""+i+"\" where USN=\""+e1+"\""
+        print q
+        r1=cursor.execute(q)
+        r=cursor.fetchall()
+        return r
