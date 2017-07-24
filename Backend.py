@@ -253,8 +253,35 @@ def insertStudent(e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,frame8):
         return e
 
 def updateAcademics(e1,j,i):
-        q="UPDATE academics set "+j+"= \""+i+"\" where USN=\""+e1+"\""
+        try:
+            q="UPDATE academics set "+j+"= \""+i+"\" where USN=\""+e1+"\""
+            print q
+            r1=cursor.execute(q)
+            r=cursor.fetchall()
+            return r
+        except Exception as e:
+            print e
+            return e
+
+
+def updateCollege(e1,j,i):
+    try:
+        q = "UPDATE college set " + j + "= \"" + i + "\" where CollegeCode=\"" + e1 + "\""
         print q
-        r1=cursor.execute(q)
-        r=cursor.fetchall()
+        r1 = cursor.execute(q)
+        r = cursor.fetchall()
         return r
+    except Exception as e:
+        print e
+        return e
+
+def updateInternship(e1,j,i):
+    try:
+        q = "UPDATE internship set " + j + "= \"" + i + "\" where usn=\"" + e1 + "\""
+        print q
+        r1 = cursor.execute(q)
+        r = cursor.fetchall()
+        return r
+    except Exception as e:
+        print e
+        return e

@@ -1,0 +1,10 @@
+CREATE TABLE  `college` (
+  `CollegeCode` int(11) NOT NULL,
+  `CollegeName` varchar(30) NOT NULL,
+  `address` varchar(30) NOT NULL,
+  `PhoneNumber` int(11) DEFAULT NULL,
+  `ContactInfo` varchar(30) NOT NULL,
+  `affiliation` varchar(30) NOT NULL,
+  `established` int(11) DEFAULT NULL,
+  `College_logo` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

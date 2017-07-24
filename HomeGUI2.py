@@ -688,7 +688,10 @@ def updAca():
 
 
 
-
+def updateCol(l1,e1,l2,e2,l3,e3,l4,e4,l5,e5,l6,e6,l7,e7,l8,e8):
+    for i, j in zip((e2.get(), e3.get(), e4.get(), e5.get(), e6.get(),e7.get(),e8.get()), (l2, l3, l4, l5, l6,l7,l8)):
+        if i != "":
+            Backend.updateCollege(e1.get(), j, i)
 def updCol():
     rootf = Toplevel()
     rootf.title("Insert into College")
@@ -767,7 +770,7 @@ def updCol():
     button1.pack(side=LEFT, padx=10, pady=10)
 
     button2 = Button(frame7, text="Confirm",
-                     command=functools.partial(someFunc))
+                     command=functools.partial(updateCol,"CollegeCode",e1,"CollegeName",e2,"address",e3,"PhoneNumber",e4,"ContactInfo",e5,"affiliation",e6,"established",e7,"College_logo",e8))
     button2.pack(side=RIGHT, padx=10, pady=10)
 def updComp():
     rootf = Toplevel()
@@ -872,6 +875,10 @@ def updComp():
                      command=functools.partial(someFunc))
     button2.pack(side=RIGHT, padx=10, pady=10)
 
+def updateInt(l1,e1,l2,e2,l3,e3,l4,e4,l5,e5):
+    for i, j in zip((e2.get(), e3.get(), e4.get(), e5.get()), (l2, l3, l4, l5)):
+        if i != "":
+            Backend.updateInternship(e1.get(), j, i)
 def updInt():
     rootf = Toplevel()
     rootf.title("Insert into internship")
@@ -931,7 +938,7 @@ def updInt():
     button1 = Button(frame7, text="Exit", command=lambda: rootf.destroy())
     button1.pack(side=LEFT, padx=10, pady=10)
 
-    button2 = Button(frame7, text="Confirm", command=functools.partial(someFunc))
+    button2 = Button(frame7, text="Confirm", command=functools.partial(updateInt,"usn",e1,"profile",e2,"duration",e3,"companyName",e4,"conversion",e5))
     button2.pack(side=RIGHT, padx=10, pady=10)
 def updStu():
     rootf = Toplevel()
